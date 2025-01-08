@@ -1,3 +1,10 @@
+# Class Norms
+
+- We are transforming our brains together
+- Requires some trust and vulnerability
+- "See something say something"
+- "What is said here stays here, what is learned here leaves here"
+
 # Recursion and Induction
 
 "The control of a large force is the same principle as the control of a few men:
