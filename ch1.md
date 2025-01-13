@@ -97,7 +97,7 @@ We have:
 - T(0) = 0
 - T(n) = 2T(n-1)+1
 
-Compute first several values of T(n): 0, 1, 5, 11, 23, 47, 95...
+Compute first several values of T(n): 0, 1, 3, 7, 15, 31, 63...
 
 Leads us to guess that $T(n) = 2^n - 1$, which happens to be correct.
 
