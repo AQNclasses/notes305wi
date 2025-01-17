@@ -57,4 +57,14 @@ $$
 
 # Example: Regular Insertion sort
 
-- show tight bound
+```python
+def insertionSort(arr):
+  for i in range(1, len(arr)):          # n+1
+    key = arr[i]                        # n
+    j = i-1                             # n
+
+    while j >= 0 and key < arr[j]:      # best case: 2; worst case: n
+      arr[j+1] = arr[j]                 # 1*above
+      j -= 1                            # 1*above
+    arr[j+1] = key                      # n
+```
