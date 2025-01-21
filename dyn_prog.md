@@ -25,17 +25,17 @@ date: Winter 2025
   - Recurrences for recursive code
 - Example: Fibonnaci numbers
 
----
-## conTeXt for accessible PDF
-#\startformula
-#F_n =
-# \startmathcases
-#  \NC 0 \NC n = 0 \NR
-#  \NC 1 \NC n = 1 \NR
-#  \NC F_{n-1} + F_{n-2} \NC otherwise \NR
-# \stopmathcases
-#\stopformula
----
+<!--
+# conTeXt for accessible PDF
+\startformula
+F_n =
+ \startmathcases
+  \NC 0 \NC n = 0 \NR
+  \NC 1 \NC n = 1 \NR
+  \NC F_{n-1} + F_{n-2} \NC otherwise \NR
+ \stopmathcases
+\stopformula
+-->
 
 $$
 F_n = \begin{cases}
