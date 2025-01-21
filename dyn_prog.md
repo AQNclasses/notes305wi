@@ -44,3 +44,9 @@ F_n = \begin{cases}
 F_{n-1} + F_{n-2} & otherwise
 \end{cases}
 $$
+
+Let $T(n)$ be the number of recursive calls to $F$. Then, we have the recurrence
+
+$$
+T(0) = 0, \hfill T(1) = 1, \hfill T(n) = T(n-1) + T(n-2) + 1,
+$$
