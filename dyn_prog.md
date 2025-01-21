@@ -2,8 +2,7 @@
 title: Dynamic Programming Lecture Notes
 author: Alexandra Nilles
 date: Winter 2025
-...
-
+---
 
 # 21 January 2025
 
@@ -36,7 +35,7 @@ date: Winter 2025
 #  \NC F_{n-1} + F_{n-2} \NC otherwise \NR
 # \stopmathcases
 #\stopformula
-...
+---
 
 $$
 F_n = \begin{cases}
