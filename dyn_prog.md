@@ -72,8 +72,8 @@ $$
 - Write out values of T(n): 1, 1, 3, 5, 9, ...
 - Progressing like the fibonacci numbers. Guess general form $T(n) = A \dot F_{n+1} + B$
 - Solve to find $T(n) = 2 F_{n+1} - 1$
-- So our recursive algorithm takes about twice as long as a procedural solution :(
-- Even worse, growth is exponential in $n$.
+- So our recursive algorithm takes about twice as many operations as counting by ones to $F_{n+1}$ :(
+- Even worse, resource function $T(n)$ growth is exponential in $n$.
 - How to show?
 
 
@@ -91,7 +91,7 @@ $$
 \end{align*}
 $$
 
-Solutions $r=3$ and $r=-2$ are both valid, depending on initial conditions.
+Solutions $r=3$ and $r=-2$ are both valid, depending on initial conditions (check using original recurrence).
 
 Solutions of $f_n + \alpha f_{n-1} + \beta f_{n-2} = 0$ can be found using roots
 $r_1$, $r_2$ of the characteristic equation $x^2 + \alpha x + \beta = 0$, and in general solutions
@@ -133,7 +133,7 @@ MemFib(n):
 How many additions? Let's try it!
 
 Now that we have very cleverly figured out how to compute Fibonacci numbers in linear time, we
-can write an algorithm to explicitly fill up our memo-ization array in order, instead of computing
+can write an algorithm to explicitly fill up a memo-ization array in order, instead of computing
 with our cached values recursively on the stack.
 
 ```python
@@ -160,3 +160,12 @@ IterFib2(n):
     curr = next
   return curr
 ```
+
+While in this case, even if we could have written the maximally efficient approach from the start,
+this is a much more general technique for optimizing recursive algorithms. Often, especially when
+working with specialized data structures (graphs, heaps, etc.) it is easier to define an algorithm
+recursively first.
+
+## Back to text segmentation
+
+...
