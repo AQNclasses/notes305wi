@@ -62,9 +62,11 @@ RecFibo(n):
 Let $T(n)$ be the number of calls to `RecFibo`. Then, we have the recurrence
 
 $$
-T(0) = 1, \\
-T(1) = 1, \\
-T(n) = T(n-1) + T(n-2) + 1,
+\begin{align*}
+T(0) & = 1, \\
+T(1) & = 1, \\
+T(n) & = T(n-1) + T(n-2) + 1,
+\end{align*}
 $$
 
 - Write out values of T(n): 1, 1, 3, 5, 9, ...
