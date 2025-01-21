@@ -50,16 +50,16 @@ Giving us the sequence: 0, 1, 1, 2, 3, 5, 8, 13, ...
 In pseudocode (assuming n > 0):
 
 ```python
-RecFibo(n):
+RecFib(n):
   if n=0:
     return 0
   elif n=1:
     return 1
   else
-    return RecFibo(n-1) + RecFibo(n-2)
+    return RecFib(n-1) + RecFib(n-2)
 ```
 
-Let $T(n)$ be the number of calls to `RecFibo`. Then, we have the recurrence
+Let $T(n)$ be the number of calls to `RecFib`. Then, we have the recurrence
 
 $$
 \begin{align*}
@@ -88,7 +88,7 @@ $$
 & G_n = G_{n-1} + 6 G_{n-2} \\
 \to & r^n - r^{n-1} - 6r^{n-2} = 0 \\
 \to & r^{n-2} ( r^2 - r - 6 ) = r^{n-2} (r-3) (r+2)
-\begin{align*}
+\end{align*}
 $$
 
 Solutions $r=3$ and $r=-2$ are both valid, depending on initial conditions.
