@@ -76,22 +76,6 @@ $$
 - Even worse, growth is exponential in $n$.
 - How to show?
 
-Modify original recurrence to inequality:
-
-1. $F_n = F_{n-1} + F_{n-2}$
-2. $F_{n-1} = F_{n-2} + F_{n-3}$
-
-Substituting 2. into 1.:
-
-$$
-F_n = 2F_{n-2} + F_{n-3}
-$$
-
-Dropping the $F_{n-3}$ term, and creating an inequality:
-
-$$
-F_n > 2F_{n-2}
-$$
 
 ## Sidebar: Solving Recurrence Relations with roots of characteristic equation
 
@@ -100,7 +84,79 @@ $$
 - Example:
 
 $$
-G_n = G_{n-1} + 6 G_{n-2} \\
-\to r^n - r^{n-1} - 6r^{n-2} = 0 \\
-\to r^{n-2} ( r^2 - r - 6 ) = r^{n-2} (r-3) (r+2)
+\begin{align*}
+& G_n = G_{n-1} + 6 G_{n-2} \\
+\to & r^n - r^{n-1} - 6r^{n-2} = 0 \\
+\to & r^{n-2} ( r^2 - r - 6 ) = r^{n-2} (r-3) (r+2)
+\begin{align*}
 $$
+
+Solutions $r=3$ and $r=-2$ are both valid, depending on initial conditions.
+
+Solutions of $f_n + \alpha f_{n-1} + \beta f_{n-2} = 0$ can be found using roots
+$r_1$, $r_2$ of the characteristic equation $x^2 + \alpha x + \beta = 0$, and in general solutions
+take the form $f_n = a r_1^n + b r_2^n$.
+
+Further reading [here](https://discrete.openmathbooks.org/dmoi2/sec_recurrence.html) and [here](https://math.stackexchange.com/a/167197).
+
+`https://discrete.openmathbooks.org` is a great resource in general.
+
+## Back to Fibonacci
+
+$$
+F_n = F_{n-1} + F_{n-2}
+$$
+
+implies the characteristic equation $x^2 - x - 1 = 0$, with roots
+
+$$
+r = \frac{1 \pm \sqrt{5}}{2}
+$$
+
+The positive root gives the solution $F_n \approx 1.618^n$ (golden ratio!).
+
+## Memo-ization
+
+Define a hash map `F` with entries `F[n]`.
+
+```python
+F = {}
+MemFib(n):
+  if n==0 or n==1:
+    return n
+  else:
+    if n not in F:
+      F[n] = MemFib(n-1) + MemFib(n-2)
+    return F[n]
+```
+
+How many additions? Let's try it!
+
+Now that we have very cleverly figured out how to compute Fibonacci numbers in linear time, we
+can write an algorithm to explicitly fill up our memo-ization array in order, instead of computing
+with our cached values recursively on the stack.
+
+```python
+import numpy as np
+
+IterFib(n):
+  f = np.zeros(n+1)
+  F[0] = 0
+  F[1] = 1
+  for i in range(2, n+1):
+      F[n] = F[n-1] + F[n-2]
+    return F[n]
+```
+
+We can also refine this further to save space, by only tracking two integers:
+
+```python
+IterFib2(n):
+  prev = 1
+  curr = 0
+  for i in range(1, n+1):
+    next = curr + prev
+    prev = curr
+    curr = next
+  return curr
+```
