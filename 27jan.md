@@ -10,7 +10,7 @@ Added definitions and examples [here](runtime_and_asymptotic.md#Notation).
 
 # Amortization recap
 
-Continuing from [here](amortized.md#example-2##algorithm-2).
+Continuing from [here](amortized.md#Example-2).
 
 # Dynamic Programming
 
