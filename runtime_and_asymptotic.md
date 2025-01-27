@@ -1,3 +1,39 @@
+# Notation
+
+## O-notation
+
+O-notation characterizes an upper bound on the asymptotic behavior of a function.
+
+O-notation implies that a function grows *no faster* than a certain rate. The rate is determined by
+the highest order term.
+
+For example, $f(n) = 7n^3 + 100n^2 - 20n + 6$ is $O(n^3)$.
+
+The function $f(n)$ is also $O(n^5)$, and in general is $O(n^c) for any constant $c \geq 3$.
+
+## Ω-notation
+
+Ω-notation characterizes a lower bound on the asymptotic behavior of a function, implying that a function grows
+*at least as fast* as a certain rate. Again, this rate is based on the highest-order term.
+
+Using the same function $f(n) = 7n^3 + 100n^2 - 20n + 6$, $f(n)$ is $\Omega(n^3)$.
+
+The function $f(n)$ is also $\Omega(n^2)$, $\Omega(n)$, and $\Omega(n^c)$ for any $c \leq 3$.
+
+## Θ-notation
+
+$\Theta$-notation characterizes a *tight bound* on the asymptotic behavior of the function: it states
+that a function grows at precisely a certain rate, based on the highest-order term (in the limit of large $n$).
+
+Our example function $f(n) = 7n^3 + 100n^2 - 20n + 6$ is $\Theta(n^3)$, and is $\Theta(n^c)$ only for $c=3$.
+
+The logical relationship between the notations is:
+
+$$
+O(f(n)) \wedge \Omega(f(n)) \iff \Theta(f(n))
+$$
+
+
 # Computing runtime
 
 - So far, we've been looking a lot at recurrences and how to analyze recursive
@@ -71,37 +107,3 @@ def insertionSort(arr):
     arr[j+1] = key                      # n
 ```
 
-# Notation
-
-## O-notation
-
-O-notation characterizes an upper bound on the asymptotic behavior of a function.
-
-O-notation implies that a function grows *no faster* than a certain rate. The rate is determined by
-the highest order term.
-
-For example, $f(n) = 7n^3 + 100n^2 - 20n + 6$ is $O(n^3)$.
-
-The function $f(n)$ is also $O(n^5)$, and in general is $O(n^c) for any constant $c \geq 3$.
-
-## Ω-notation
-
-Ω-notation characterizes a lower bound on the asymptotic behavior of a function, implying that a function grows
-*at least as fast* as a certain rate. Again, this rate is based on the highest-order term.
-
-Using the same function $f(n) = 7n^3 + 100n^2 - 20n + 6$, $f(n)$ is $\Omega(n^3)$.
-
-The function $f(n)$ is also $\Omega(n^2)$, $\Omega(n)$, and $\Omega(n^c)$ for any $c \leq 3$.
-
-## Θ-notation
-
-$\Theta$-notation characterizes a *tight bound* on the asymptotic behavior of the function: it states
-that a function grows at precisely a certain rate, based on the highest-order term (in the limit of large $n$).
-
-Our example function $f(n) = 7n^3 + 100n^2 - 20n + 6$ is $\Theta(n^3)$, and is $\Theta(n^c}$ only for $c=3$.
-
-The logical relationship between the notations is:
-
-$$
-O(f(n)) \wedge \Omega(f(n)) \iff \Theta(f(n))
-$$
