@@ -3,13 +3,16 @@ author: Alexandra Nilles
 title: Amortized Analysis
 ---
 
-# Example one: mortgage
+# Example 1
+
+Consider the (increasingly unlikely) scenario of obtaining a mortgage loan for a house.
 
 - Draw example on board
 - Could pay lots of interest up front, less over time
-- Or, could have constant payments for lifetime of mortgage
+- Or, could have constant payments for lifetime of mortgage (preferred by banks)
+- What happens if you default on loan early?
 
-# Example two
+# Example 2
 
 Consider the task of implementing a stack using an array.
 
@@ -68,7 +71,9 @@ $$
 The result can also be shown inductively.
 
 
-# Example 3: Binary counter
+# Example 3
+
+Consider the following implementation of a binary counter:
 
 ```python
 # B is array of bits
@@ -80,7 +85,7 @@ def Increment(B):
   B[i] = 1
 ```
 
-How long to terminate?
+How long will this algorithm take to terminate for an arbitrary input binary number? How long to count up to $n$?
 
 - If first $k$ bits are all ones, it will take $\Theta(k)$ time.
 - Binary representation of integer $n$ is $lg n +1$ bits long.
