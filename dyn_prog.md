@@ -26,7 +26,7 @@ date: Winter 2025
 - Example: Fibonnaci numbers
 
 <!--
-# conTeXt for accessible PDF - TODO check if this is necessary now that compiling with context seems to be working for regular math mode
+# conTeXt for accessible PDF
 \startformula
 F_n =
  \startmathcases
@@ -166,37 +166,35 @@ this is a much more general technique for optimizing recursive algorithms. Often
 working with specialized data structures (graphs, heaps, etc.) it is easier to define an algorithm
 recursively first.
 
-\newpage
-
-# 27 January 2025
-
-## Amortization Recap
-
-Stack implementation, doubling in size every time we resize, has a total resize cost of
-
-$$
-\sum_{i=0}^k 2^i
-$$
-
-such that for an input of size $n$, the final (kth) resize has the property $2^k <= n$. Thus our upper bound is
-$k <= lg n$, and we take the upper bound $k = lg n$ for our runtime analysis.
-
-In the more general case of summation to $N$, this is a geometric series, so we can apply our general formula
-
-$$
-\sum_{i=0}^N r^i = \frac{1-r^{N+1}}{1-r}
-$$
-
-to find
-
-$$
-\sum_{i=0}^{lg n} 2^i = 2^{1 + lg n}-1 = 2 \dot 2^{lg n} - 1 = 2 n - 1.
-$$
-
-The result can also be shown inductively.
-
 ## Text Segmentation
 
 Recall the text segmentation problem where we are given a string $A[1..n]$ and a constant-time boolean subroutine `isWord`.
 
 We wish to decide whether the input $A$ can be partitioned into a sequence of words.
+
+We defined a function `Splittable(i)` that returns True if and only if the suffix $A[i..n]$ can be partitioned into a sequence of words.
+
+Then, we can solve the problem by computing `Splittable(1)`.
+
+We can write down the recurrence as
+
+$$
+Splittable(i) = \begin{cases}
+True & \text{if $i > n$} \\
+\vee_{j=1}^n isWord(i,j) \wedge Splittable(j+1) & \text{otherwise}
+\end{cases}
+$$
+
+but this recurrence, translated directly into a recursive function, runs in $O(2^n)$ time in the worst case.
+
+Is this reasonable?
+
+- How many ways to call `Splittable`?
+- How many ways to call `isWord`?
+
+What does this imply about how we should memoize the algorithm?
+
+- We want to build up solutions from the end of the input array to the beginning, because computing `Solvable(i)`
+- depends on results for `Solvable(j)` for all valid $j > i$.
+
+## Edit Distance

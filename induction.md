@@ -32,13 +32,11 @@ $$
 
 For the case of $P(n)$, we assume $P(n)$ to be true (inductive hypothesis), and directly compute $P(n+1) = P(n) + (n+1)$ as
 
-$$
 \startmathalignment[number=auto]
 P(n+1) \NC = \frac{n(n+1)}{2} + (n+1) \NR
 \NC = \frac{n^2 + n + 2n +2}{2} \NR
 \NC = \frac{(n+1)(n+2)}{2}
 \stopmathalignment
-$$
 
 yielding the expression to be proved for $P(n+1)$, and completing the proof by induction.
 

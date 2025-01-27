@@ -9,7 +9,9 @@ title: Amortized Analysis
 - Could pay lots of interest up front, less over time
 - Or, could have constant payments for lifetime of mortgage
 
-# Example two: stack as array
+# Example two
+
+Consider the task of implementing a stack using an array.
 
 - Define array A with variable `top` points to first free element (top of stack)
 - Define `push(x)` as `A[top] = x; top++`
@@ -21,20 +23,50 @@ characterize performance of data structure?
 **Cost model:** assign cost of push as 1, pop as 1, and resizing array is number
 of elements moved.
 
-## Algorithm 1: Resize to increase array size by 1
+## Algorithm 1
+
+First, assume we naively implement our stack by resizing our array from $n$ to $n+1$ every time we run out of space.
 
 - Start with array of size 1
 - perform $n$ pushes
 - total cost = $1 + 2 + 3 + 4 + \ldots + n = n(n+1)/2$
 - cost per operation (amortized!) is $(n+1)/2$
 
-## Algorithm 2: Double array when resized
+## Algorithm 2
+
+Next, assume we try a scheme where we double the size of our array every time we run out of space.
 
 - Again, start with array of size 1
 - $n$ pushes
 - total cost for resizing = $1 + 2 + 4 + 8 + \ldots + 2^i$
 - sum is at most $2n - 1$, plus $n$ for the push operations.
 - Total cost $3n-1$, amortized cost per operation is $<3$.
+
+How to get sum?
+
+Stack implementation, doubling in size every time we resize, has a total resize cost of
+
+$$
+\sum_{i=0}^k 2^i
+$$
+
+such that for an input of size $n$, the final (kth) resize has the property $2^k <= n$. Thus our upper bound is
+$k <= lg n$, and we take the upper bound $k = lg n$ for our runtime analysis.
+
+In the more general case of summation to $N$, this is a geometric series, so we can apply our general formula
+
+$$
+\sum_{i=0}^N r^i = \frac{1-r^{N+1}}{1-r}
+$$
+
+to find
+
+$$
+\sum_{i=0}^{lg n} 2^i = 2^{1 + lg n}-1 = 2 \dot 2^{lg n} - 1 = 2 n - 1.
+$$
+
+The result can also be shown inductively.
+
 
 # Example 3: Binary counter
 

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>intro</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="what-is-an-algorithm">What is an Algorithm?</h1>
+<ul>
+<li>not a beat that Al Gore came up with!</li>
+<li>Origin of word: 9th century Persian scholar Muhammad ibn Musa
+al-Khwarizmi
+<ul>
+<li>also the origin of the word “algebra”, the decimal system for
+representing numbers, and invented the number zero (also independently
+defined in India)</li>
+<li>his name was combined with the Greek arithmos (number) and algos
+(pain).</li>
+</ul></li>
+<li>Until very recently, the word algorithm referred to techniques for
+auditable arithmetic procedures. People trained to execute these
+procedures were called algorists, computators, or computers.</li>
+<li>Informal definition: solicit from students</li>
+<li>Workshop informal definition to formal definition</li>
+<li>Formal definition: an
+<ol type="1">
+<li>explicit</li>
+<li>precise</li>
+<li>unambiguous</li>
+<li>mechanically-executable</li>
+<li>finite sequence of</li>
+<li>elementary instructions</li>
+</ol></li>
+</ul>
+<p>Explicit but not precise or unambigous: “my name is not Bob Ross”</p>
+<p>Precise but not explicit or elementary: “choose the best edge in the
+graph”</p>
+<h1 id="mechanical-execution">Mechanical execution</h1>
+<ul>
+<li>Turing machine model</li>
+<li>Human computers (Apollo)</li>
+<li>Crab computer</li>
+<li>Liquid computers - immune system</li>
+<li>Compass and straightedge</li>
+<li>human does not need to intervene and use best judgement</li>
+</ul>
+<h1 id="not-an-algorithm">Not an algorithm</h1>
+<p>``Martin’s algorithm’’</p>
+<pre><code>BeAMillionaireAndNeverPayTaxes():
+  1. Get a million dollars
+  2. If the tax man comes to your door and says, &quot;You have never paid taxes!&quot;, then
+     - Say &quot;I forgot.&quot;</code></pre>
+<p>Not explicit enough for most of us to execute!</p>
+<p>Good example of a reduction: reduces a challenging problem by using a
+“solved” problem (getting one million dollars).</p>
+<h1 id="example-of-algorithm">Example of Algorithm</h1>
+<pre><code>BottlesOfBeer(n):
+  For i in [n..1]
+    Sing &quot;i bottles of beer on the wall, i bottles of beer&quot;
+    Sing &quot;Take one down, pass it around, i-1 bottles of beer on the wall.&quot;
+  Sing &quot;No bottles of beer on the wall, no bottles of beer,&quot;
+  Sing &quot;Go to the store, buy some more, n bottles of beer on the wall&quot;
+  Optional: repeat BottlesOfBeer(n)</code></pre>
+<p>Is this a finite set of instructions?</p>
+<p>If the recursive call is implemented, is this an algorithm that will
+ever terminate?</p>
+<p>What assumptions are made in this algorithm description? (n must be
+non-negative)</p>
+<h1 id="describing-algorithms">Describing algorithms</h1>
+<ul>
+<li>To design or analyze an algorithm, one must first learn how to
+describe algorithms.</li>
+<li>Human brain hardware is not as precise as the typical digital
+computer; we must learn to think rigorously</li>
+<li>Learning to describe algorithms and their properties is an essential
+skill for computer scientists.</li>
+<li>Always assume your audience is made up of “skeptical novices”:
+people less knowledgeable and clever than you, and who will interpret
+your writing extremely literally.
+<ul>
+<li>Anyone done the peanut butter sandwich instruction assignment?</li>
+</ul></li>
+<li>Primary job as a developer is not to write awe-inspiring code. You
+much be able to teach other people how and why your algorithms
+work!</li>
+</ul>
+<h2 id="components-of-a-complete-algorithm-description">Components of a
+complete algorithm description</h2>
+<ul>
+<li>What: Precise specification of the problem solved by the
+algorithm.</li>
+<li>How: Precise description of the algorithm itself</li>
+<li>Why: A proof that the algorithm solves the problem it is supposed to
+solve</li>
+<li>How well: An analysis of running time (and/or space) of the
+algorithm</li>
+</ul>
+<p>Not often developed in this order - more often all pieces are
+developed simultaneously with lots of iterative feedback loops.</p>
+<h2 id="why-analyze-algorithms">Why analyze algorithms?</h2>
+<ol type="1">
+<li>Determine performance characteristics and predicting resource
+requirements</li>
+</ol>
+<ul>
+<li>Time, memory, bandwidth, etc</li>
+</ul>
+<ol start="2" type="1">
+<li>Determine optimality: since algorithms are executed mechanically,
+there are physical limitations on the resource requirements. Can we find
+the “best” algorithm with respect to different resources?</li>
+<li>Correctness: some bugs are extremely subtle (merge sort
+example).</li>
+</ol>
+<ul>
+<li>Even a provably correct algorithm can be implemented incorrectly, of
+course! See: formal methods.</li>
+<li>Often use induction to prove that algorithms are correct on all
+possible inputs!</li>
+</ul>
+<ol start="4" type="1">
+<li>Deep questions of computability and information processing in the
+universe</li>
+</ol>
+<ul>
+<li>Millenium problems</li>
+</ul>
+<h2 id="formalizing-resource-usage">Formalizing resource usage</h2>
+<ul>
+<li>Some computers are faster than others</li>
+<li>Runtime expression should be machine-independent, so we need to
+choose a “hypothetical computer”</li>
+<li>RAM model:
+<ul>
+<li>single processor, sequential execution</li>
+<li>constant-time elementary instructions (arithmetic, data movement,
+control)</li>
+<li>runtime cost is uniform (1 time unit) for all simple
+instructions</li>
+<li>memory is unlimited and “flat” : no hierarchy, accessing a variable
+in memory takes 1 time unit.</li>
+</ul></li>
+<li>Running time of an algorithm is always given in terms of input size
+(usually N).
+<ul>
+<li>Input can have other structure, eg: sorted or unsorted, cyclic or
+acyclic graphs</li>
+</ul></li>
+<li>Also known as the runtime <em>complexity</em> of the algorithm.
+Algorithms belong to <em>complexity classes</em> defined by the
+<em>asymptotic complexity</em> as N becomes large.</li>
+</ul>
+<p>(Compare growth rates slide)</p>
+</body>
+</html>
