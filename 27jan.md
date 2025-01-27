@@ -5,7 +5,7 @@ date: 27 January 2025
 
 # Runtime Clarification
 
-Added definitions and examples [here](runtime_and_asymptotic.md#Asymptotic\ notation).
+Added definitions and examples [here](runtime_and_asymptotic.md#Notation).
 
 
 # Amortization recap
