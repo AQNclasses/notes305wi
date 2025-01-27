@@ -55,7 +55,9 @@ $$
   functional form. To justify, need to justify that there is no situation where we
   will change the functional form of the runtime expression $T(n)$.
 
-# Example: Regular Insertion sort
+# Example 1
+
+Consider a straightforward implementation of insertion sort.
 
 ```python
 def insertionSort(arr):
@@ -69,7 +71,7 @@ def insertionSort(arr):
     arr[j+1] = key                      # n
 ```
 
-# Asymptotic notation
+# Notation
 
 ## O-notation
 
