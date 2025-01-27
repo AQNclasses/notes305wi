@@ -11,6 +11,7 @@ PANDOC_HTML_OPTIONS=--to html5 --mathml
 
 %.pdf : %.md
 	pandoc $(PANDOC_OPTIONS) $(PANDOC_PDF_OPTIONS) -o $@ $<
+	mv $@ pdfs/
 
 %.html : %.md
 	pandoc $(PANDOC_OPTIONS) $(PANDOC_HTML_OPTIONS) -o $@ $<
