@@ -9,7 +9,7 @@ the highest order term.
 
 For example, $f(n) = 7n^3 + 100n^2 - 20n + 6$ is $O(n^3)$.
 
-The function $f(n)$ is also $O(n^5)$, and in general is $O(n^c) for any constant $c \geq 3$.
+The function $f(n)$ is also $O(n^5)$, and in general is $O(n^c)$ for any constant $c \geq 3$.
 
 ## Ω-notation
 
