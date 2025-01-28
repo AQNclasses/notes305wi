@@ -321,8 +321,8 @@ do not depend on previously chosen operations.
 Another example:
 
 ```
-ALGOR I THM
 AL TRUISTIC
+ALGOR I THM
 ```
 
 Thus, for any two input strings $A[1..m]$ and $B[1..n]$, we can create a
@@ -337,15 +337,15 @@ Three possibilities for each column:
 insertion, and the edit distance is equal to $Edit(i, j-1) + 1$.
 
 ```
-ALGOR
 ALTR
+ALGOR
 ```
 
 - **Deletion:** In this case, the edit distance is equal to $Edit(i-1, j) + 1$.
 
 ```
-ALGO
 ALTRU
+ALGO
 ```
 
 - **Substitution:** In this case, if we are comparing two different characters,
@@ -353,13 +353,13 @@ the edit distance is equal to $Edit(i-1, j-1) + 1$. If both characters are
 equal, the "substitution" is free, so our edit distance is $Edit(i-1, j-1)$.
 
 ```
-ALGOR
 ALTRU
+ALGOR
 ```
 
 ```
-ALGOR
 ALT R
+ALGOR
 ```
 
 - Special cases: if i=0 or j=0
