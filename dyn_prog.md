@@ -263,8 +263,8 @@ def TreeMIS(v):
   for w in children(v):
     for x in children(w):
       keep += x.MIS # retrieve cached value
-  MIS = max([keep, skip]) # cache value
-  return MIS
+  v.MIS = max([keep, skip]) # cache value
+  return v.MIS
 ```
 
 Since we have defined this recursively in the correct order to give us a
