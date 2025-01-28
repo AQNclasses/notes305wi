@@ -76,7 +76,6 @@ $$
 - Even worse, resource function $T(n)$ growth is exponential in $n$.
 - How to show?
 
-
 ## Sidebar: Solving Recurrence Relations with roots of characteristic equation
 
 - Method for generating solutions to recurrence relations of form $f_n + \alpha f_{n-1} + \beta f_{n-2} = 0$
@@ -100,6 +99,7 @@ take the form $f_n = a r_1^n + b r_2^n$.
 Further reading [here](https://discrete.openmathbooks.org/dmoi2/sec_recurrence.html) and [here](https://math.stackexchange.com/a/167197).
 
 `https://discrete.openmathbooks.org` is a great resource in general.
+
 
 ## Back to Fibonacci
 
@@ -301,4 +301,69 @@ We cannot get away with fewer than one insertion and three substitutions.
 
 How to tell automatically what the shortest distance is?
 
+Dynamic programming steps:
 
+1. Identify recursive structure
+2. Write down correct recurrence
+3. Analyze recurrence to identify subproblems, dependencies, and memoize
+
+### Recursive (Inductive) Structure
+
+Take the gap representation for the minimal edit distance. If we remove the last
+(or first - order is arbitrary) column, the remaining columns must represent the shortest edit
+sequence for the remaining prefixes. Proof by induction: if the prefixes had a
+shorter edit sequence, we could use that, glue the last column back on, and the
+result would violate our original assumption of minimal edit distance.
+
+So we are looking to find a sequence of editing operations. Editing operations
+do not depend on previously chosen operations.
+
+Another example:
+
+```
+ALGOR I THM
+AL TRUISTIC
+```
+
+Thus, for any two input strings $A[1..m]$ and $B[1..n]$, we can create a
+recursive function $Edit(i,j)$ that computes the edit distance between the
+prefixes $A[1..i]$ and $B[1..j]$, and we need to compute $Edit[m,n]$.
+
+### Recurrence
+
+Three possibilities for each column:
+
+- **Insertion:** In this case, we need one
+insertion, and the edit distance is equal to $Edit(i, j-1) + 1$.
+
+```
+ALGOR
+ALTR
+```
+
+- **Deletion:** In this case, the edit distance is equal to $Edit(i-1, j) + 1$.
+
+```
+ALGO
+ALTRU
+```
+
+- **Substitution:** In this case, if we are comparing two different characters,
+the edit distance is equal to $Edit(i-1, j-1) + 1$. If both characters are
+equal, the "substitution" is free, so our edit distance is $Edit(i-1, j-1)$.
+
+```
+ALGOR
+ALTRU
+```
+
+```
+ALGOR
+ALT R
+```
+
+- Special cases: if i=0 or j=0
+- Transforming the empty string into a string of length $j$ requires $j$
+insertions, so $Edit(0,j) = j$.
+- Transforming a string of length $i$ into the empty string requires $i$
+deletions, so $Edit(i,0) = i$.
