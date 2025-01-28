@@ -194,7 +194,111 @@ Is this reasonable?
 
 What does this imply about how we should memoize the algorithm?
 
-- We want to build up solutions from the end of the input array to the beginning, because computing `Solvable(i)`
-- depends on results for `Solvable(j)` for all valid $j > i$.
+- We want to build up solutions from the end of the input array to the beginning, because computing `Splittable(i)`
+- depends on results for `Splittable(j)` for all valid $j > i$.
+
+
+## Independent Set
+
+Definition of independent set of a graph: subset of vertices with no edges
+between them.
+
+Finding maximum size independent set is a canonical NP-hard problem.
+
+But when the input graph is a tree with $n$ vertices, we can compute the largest independent set
+in $O(n)$ time.
+
+Assume we are given a tree T, with a root.
+
+For any node v in T, let MIS(v) denote the size of the largest independent set
+in the subtree rooted at v.
+
+There are two cases for the independent set of this tree: includes $v$ or
+doesn't.
+
+If the independent set includes $v$, it cannot include any of $v$'s direct
+children, but will include the independent sets of $v$'s "grandchildren."
+If the independent set does not include $v$, then the independent set
+can be written as the union of the independent sets of the subtrees rooted at
+children of $v$.
+
+(draw on board)
+
+Let $c(w)$ be a function that returns the children of vertex $w$. Then, our
+observation above implies the following recurrence:
+
+$$
+MIS(v) = \text{max} \left\{ \sum_{w \in c(v)} MIS(w), 1 + \sum_{w \in c(v)} \sum_{x \in c(w)} MIS(x) \right\}
+$$
+
+What kind of data structure should we use to memoize this recurrence? (Tree!)
+
+How? (can add binary variable to nodes, to keep or to skip, as well as storing
+MIS(x) for each x when it is computed)
+
+In what order must we visit the nodes? Every vertex must be visited before its
+parent, requiring a post-order traversal.
+
+### Runtime Analysis
+
+Hard to determine runtime from recurrence: sums will be different sizes at
+different levels, and dependent on tree structure.
+
+But consider: Each vertex contributes a constant amount of time to its parent
+and grandparent's computations of MIS. Each vertex has at most one parent and at
+most one grandparent. So, counting only the contributions *up* the tree from
+each node, we conclude that this algorithm runs in $O(n)$ time.
+
+### Algorithm
+
+A full dynamic programming algorithm to find the size of the maximum
+independent set can be written as:
+
+```python
+def TreeMIS(v):
+  skip = 0
+  for w in children(v):
+    skip += TreeMIS(w)
+  keep = 1
+  for w in children(v):
+    for x in children(w):
+      keep += x.MIS # retrieve cached value
+  MIS = max([keep, skip]) # cache value
+  return MIS
+```
+
+Since we have defined this recursively in the correct order to give us a
+postorder traversal, we will not repeat any computations.
 
 ## Edit Distance
+
+Another fun problem from bioinformatics!
+
+The **edit distance** between two strings is the minimum number of letter
+insertions, letter deletions, and letter substitutions required to transform one
+string into the other.
+
+For example, the edit distance between FOOD and MONEY is at most four:
+
+```
+FOOD
+MOOD
+MOND
+MONED
+MONEY
+```
+
+Intermediate states do not have to be valid words.
+
+We can use a column representation to see why we must take at least four steps:
+
+```
+F O O   D
+M O N E Y
+```
+
+We cannot get away with fewer than one insertion and three substitutions.
+
+How to tell automatically what the shortest distance is?
+
+
