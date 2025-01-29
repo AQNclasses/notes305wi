@@ -231,7 +231,7 @@ $$
 MIS(v) = \text{max} \left. \begin{cases}
 \sum_{w \in c(v)} MIS(w) \\
 1 + \sum_{w \in c(v)} \sum_{x \in c(w)} MIS(x)
-\end{cases} \right}
+\end{cases} \right\}
 $$
 
 What kind of data structure should we use to memoize this recurrence? (Tree!)
@@ -377,10 +377,10 @@ $$
 Edit(i,j) = \begin{cases}
 i & \text{if $j = 0$} \\
 j & \text{if $i = 0$} \\
-\text{min} \begin{cases}
+\text{min} \right. \begin{cases}
 Edit(i,j-1) + 1 \\
 Edit(i-1,j) + 1 \\
 Edit(i-1, j-1) + [A[i] \neq B[j]]
-\end{cases} & \text{otherwise} \\
+\end{cases} \right\} & \text{otherwise}
 \end{cases}
 $$
