@@ -433,3 +433,40 @@ OptCost(i,k) = \begin{cases}
 OptCost(i, r-1) + OptCost(r+1,k) \end{cases} & otherwise
 \end{cases}
 $$
+
+A lot going on here! First, let us separately memoize the sum in the first term.
+
+Let $F(i,k)$ denote the total frequency count for all keys in interval
+$A[i..k]$:
+
+$$
+F(i,k) = \begin{cases}
+f[i] & \text{if $i=k$} \\
+F(i, k-1) + f[k] & \text{otherwise}
+\end{cases}
+$$
+
+Can compute all values in $O(n^2)$ time.
+
+### Mechanical Memoization
+
+Now we have:
+
+$$
+OptCost(i,k) = \begin{cases}
+0 & \text{if $i>k$} \\
+F[i,k] + \min\limits_{i \leq r \leq k} \begin{cases}
+OptCost(i, r-1) + OptCost(r+1,k) \end{cases} & otherwise
+\end{cases}
+$$
+
+- **Subproblems:** specified by $i$ and $k$. We require $i \leq k$.
+- **Data Structure:** We can use a two dimensional array, and fill out half.
+- **Dependencies:** Each entry depends on $OptCost[i, j-1]$ and
+$OptCost[j+1,k]$ (left and below).
+
+(draw evaluation order options on board)
+
+- **Performance analysis:** Clearly require $O(n**2)$ space. However, each entry
+requires evaluating up to $n$ different options for the minimum. Thus, we expect
+$O(n^3)$ time.
