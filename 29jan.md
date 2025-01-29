@@ -3,6 +3,7 @@
 ## Announcements
 
 - HW2 is due tomorrow night!
+- We will release HW1 solutions today
 - Office hours are today, 3-4pm and tomorrow 2-4pm
 - Location change: office hours will be held in KB109
 
