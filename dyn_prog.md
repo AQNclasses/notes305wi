@@ -4,26 +4,12 @@ author: Alexandra Nilles
 date: Winter 2025
 ---
 
-# 21 January 2025
 
-## Admin
+# Making the Best of It: Efficient Backtracking?
 
-- HW 1 due tonight 10pm
-  - Upload on Canvas
-  - If handwritten, use scanning app or scanner in library, computer labs
-  - Submission is PDF only
-- Quiz Friday
-  - Credit for attempts
-  - 30 minutes given, aim for 15 mins
-  - handwritten / handtyped solutions
+## Example 1
 
-## Making the Best of It: Efficient Backtracking?
-
-- (Show schedule)
-- Recall we started with counting and recurrences to find our resource usage function $T(n)$
-  - Counting for imperative code
-  - Recurrences for recursive code
-- Example: Fibonnaci numbers
+Consider the Fibonnaci numbers.
 
 <!--
 # conTeXt for accessible PDF
@@ -74,34 +60,9 @@ $$
 - Solve to find $T(n) = 2 F_{n+1} - 1$
 - So our recursive algorithm takes about twice as many operations as counting by ones to $F_{n+1}$ :(
 - Even worse, resource function $T(n)$ growth is exponential in $n$.
-- How to show?
+- How to show? See [here](runtime_and_asymptotic.md#root-method).
 
-## Sidebar: Solving Recurrence Relations with roots of characteristic equation
-
-- Method for generating solutions to recurrence relations of form $f_n + \alpha f_{n-1} + \beta f_{n-2} = 0$
-- We guess that $f_n = r^n$, then factor and solve for $r$
-- Example:
-
-$$
-\begin{align*}
-& G_n = G_{n-1} + 6 G_{n-2} \\
-\to & r^n - r^{n-1} - 6r^{n-2} = 0 \\
-\to & r^{n-2} ( r^2 - r - 6 ) = r^{n-2} (r-3) (r+2)
-\end{align*}
-$$
-
-Solutions $r=3$ and $r=-2$ are both valid, depending on initial conditions (check using original recurrence).
-
-Solutions of $f_n + \alpha f_{n-1} + \beta f_{n-2} = 0$ can be found using roots
-$r_1$, $r_2$ of the characteristic equation $x^2 + \alpha x + \beta = 0$, and in general solutions
-take the form $f_n = a r_1^n + b r_2^n$.
-
-Further reading [here](https://discrete.openmathbooks.org/dmoi2/sec_recurrence.html) and [here](https://math.stackexchange.com/a/167197).
-
-`https://discrete.openmathbooks.org` is a great resource in general.
-
-
-## Back to Fibonacci
+Considering our original recurrence
 
 $$
 F_n = F_{n-1} + F_{n-2}
@@ -110,12 +71,14 @@ $$
 implies the characteristic equation $x^2 - x - 1 = 0$, with roots
 
 $$
-r = \frac{1 \pm \sqrt{5}}{2}
+r = \frac{1 \pm \sqrt{5}}{2}.
 $$
 
 The positive root gives the solution $F_n \approx 1.618^n$ (golden ratio!).
+Since this value is larger than one, a naive recursive algorithm would run in
+time exponential in $n$.
 
-## Memo-ization
+### Memo-ization
 
 Define a hash map `F` with entries `F[n]`.
 
@@ -166,7 +129,8 @@ this is a much more general technique for optimizing recursive algorithms. Often
 working with specialized data structures (graphs, heaps, etc.) it is easier to define an algorithm
 recursively first.
 
-## Text Segmentation
+## Example 2
+
 
 Recall the text segmentation problem where we are given a string $A[1..n]$ and a constant-time boolean subroutine `isWord`.
 
@@ -198,7 +162,9 @@ What does this imply about how we should memoize the algorithm?
 - depends on results for `Splittable(j)` for all valid $j > i$.
 
 
-## Independent Set
+## Example 3
+
+Problem: Independent Set
 
 Definition of independent set of a graph: subset of vertices with no edges
 between them.
@@ -274,9 +240,9 @@ def TreeMIS(v):
 Since we have defined this recursively in the correct order to give us a
 postorder traversal, we will not repeat any computations.
 
-## Edit Distance
+## Example 4
 
-Another fun problem from bioinformatics!
+Another fun problem from bioinformatics: edit distance!
 
 The **edit distance** between two strings is the minimum number of letter
 insertions, letter deletions, and letter substitutions required to transform one
@@ -384,4 +350,85 @@ Edit(i-1,j) + 1 \\
 Edit(i-1, j-1) + [A[i] \neq B[j]]
 \end{cases} \right\\} & \text{otherwise}
 \end{cases}
+$$
+
+(explain indicator variable)
+
+### Mechanical Memoization
+
+- **Subproblems:** recursive subproblems are defined by $0 \leq i \leq m$ and
+$0 \leq j \leq n$
+- **Data structure:** We will have at most $m \cdot n$ values for $Edit(i,j)$,
+so we can store in a two-dimensional array, $Edit[0 \ldots m, 0 \ldots n]$.
+- **Dependencies:** Each entry $Edit(i,j)$ depends on three neighboring entries,
+$Edit[i-1,j]$, $Edit[i, j-1]$, and $Edit[i-1, j-1]$.
+- **Evaluation order:** If we use standard row-major order (left to right in
+each row, from top row to bottom row), the entries will be defined in the
+correct order.
+
+How to initialize base cases?
+
+### Performance Analysis
+
+To fill out the table will take $O(mn)$ time and space. Computing each entry
+takes constant time since we know its predecessors.
+
+(Show memoization table)
+
+Our table does not store arrows: how long does it take to reconstruct the
+shortest edit sequence?
+
+## Example 5
+
+Our final example for dynamic programming / cacheing is the problem of forming
+optimal binary search trees.
+
+As input, we are given a sorted array $A[1..n]$ of search keys and an array
+$f[1..n]$ of frequency counts, where $f[i]$ is the number of searches for
+$A[i]$.
+
+Our task is to construct a binary search tree for the set of keys such that the
+total cost of all the searches is as small as possible.
+
+How to find recurrence?
+
+First, let's write down the total cost of all searches in an arbitrary tree $T$.
+The cost of searching $A[i]$ will be the frequency $f[i]$ multiplied by the
+depth of the node containing $A[i]$. So the total cost will be:
+
+$$
+Cost(T, f[1..n]) = \sum\limits_{i=1}^n f[i] * (depth(A[i] + 1)
+$$
+
+However, one of these nodes must be the root node. Let us set the root node at
+i=r, which must have depth zero. Then, we can factor our sum as
+
+$$
+Cost(T, f[1..n]) = \sum\limits_{i=1}^n f[i] + \
+\sum\limits_{i=1}^(r-1) f[i] * (depth_{left}(A[i] + 1) + \
+\sum\limits_{i=r+1}^(n) f[i] * (depth_{right}(A[i] + 1)
+$$
+
+Where we have factored the sum into the contribution from the root, left and
+right subtrees. The recursive structure is now more clear, and we can write:
+
+$$
+Cost(T, f[1..n]) = \sum\limits_{i=1}^n f[i] + \
+Cost(left(T), f[1..r-1]) + \
+Cost(right(T), f[r+1..n])
+$$
+
+So, it becomes clear that finding the optimal cost involves picking the correct
+root at every level of execution. For this naive approach, our recurrence is
+$T(n) = \alpha n + 2 \sum_{k=0}^{n-1} T(k)$. The solution is in your book, and
+gives us $T(n) = O(3^n)$. How to improve?
+
+First, let's write a recurrence for OptCost that explicitly searches over the
+options for the root:
+
+$$
+OptCost(i,k) = \begin{cases}
+0 & \text{if $i>k$} \\
+\sum\limits_{j=i}^k f[j] + \text{min}\limits_{i \leq r \leq k} \begin{cases}
+OptCost(i, r-1) + OptCost(r+1,k) \end{cases} & otherwise
 $$

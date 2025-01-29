@@ -1,3 +1,3 @@
 # Dynamic Programming
 
-Continuing from [here](dyn_prog.md#independent-set).
+Continuing from [here](dyn_prog.md#example-3).
