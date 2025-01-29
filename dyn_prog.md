@@ -229,8 +229,8 @@ observation above implies the following recurrence:
 
 $$
 MIS(v) = \text{max} \left. \begin{cases}
-\sum\limits_{w \in c(v)} MIS(w) \\
-1 + \sum\limits_{w \in c(v)} \sum\limits_{x \in c(w)} MIS(x)
+\sum\limits_{w \in c(v)} MIS(w) & \text{excluding v} \\
+1 + \sum\limits_{w \in c(v)} \sum\limits_{x \in c(w)} MIS(x) & \text{including v}
 \end{cases} \right\\}
 $$
 
