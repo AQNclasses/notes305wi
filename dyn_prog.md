@@ -227,12 +227,12 @@ children of $v$.
 Let $c(w)$ be a function that returns the children of vertex $w$. Then, our
 observation above implies the following recurrence:
 
-\begin{equation}
+$$
 MIS(v) = \text{max} \left. \begin{cases}
-\sum_{w \in c(v)} MIS(w) \\
-1 + \sum_{w \in c(v)} \sum_{x \in c(w)} MIS(x)
+\sum\limits_{w \in c(v)} MIS(w) \\
+1 + \sum\limits_{w \in c(v)} \sum\limits_{x \in c(w)} MIS(x)
 \end{cases} \right\\}
-\end{equation}
+$$
 
 
 What kind of data structure should we use to memoize this recurrence? (Tree!)
@@ -382,6 +382,6 @@ j & \text{if $i = 0$} \\
 Edit(i,j-1) + 1 \\
 Edit(i-1,j) + 1 \\
 Edit(i-1, j-1) + [A[i] \neq B[j]]
-\end{cases} \right\} & \text{otherwise}
+\end{cases} \right\\} & \text{otherwise}
 \end{cases}
 $$
