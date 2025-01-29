@@ -231,7 +231,7 @@ $$
 MIS(v) = \text{max} \left. \begin{cases}
 \sum_{w \in c(v)} MIS(w) \\
 1 + \sum_{w \in c(v)} \sum_{x \in c(w)} MIS(x)
-\end{cases} \right\}
+\end{cases} \right\\}
 $$
 
 What kind of data structure should we use to memoize this recurrence? (Tree!)
