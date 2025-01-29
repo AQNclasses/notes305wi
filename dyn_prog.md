@@ -431,4 +431,5 @@ OptCost(i,k) = \begin{cases}
 0 & \text{if $i>k$} \\
 \sum\limits_{j=i}^k f[j] + \min\limits_{i \leq r \leq k} \begin{cases}
 OptCost(i, r-1) + OptCost(r+1,k) \end{cases} & otherwise
+\end{cases}
 $$
