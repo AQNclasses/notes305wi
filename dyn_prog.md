@@ -405,8 +405,8 @@ i=r, which must have depth zero. Then, we can factor our sum as
 
 $$
 Cost(T, f[1..n]) = \sum\limits_{i=1}^n f[i] + \
-\sum\limits_{i=1}^(r-1) f[i] * (depth_{left}(A[i] + 1) + \
-\sum\limits_{i=r+1}^(n) f[i] * (depth_{right}(A[i] + 1)
+\sum\limits_{i=1}^{r-1} f[i] * (depth_{left}(A[i] + 1) + \
+\sum\limits_{i=r+1}^{n} f[i] * (depth_{right}(A[i] + 1)
 $$
 
 Where we have factored the sum into the contribution from the root, left and
@@ -414,8 +414,8 @@ right subtrees. The recursive structure is now more clear, and we can write:
 
 $$
 Cost(T, f[1..n]) = \sum\limits_{i=1}^n f[i] + \
-Cost(left(T), f[1..r-1]) + \
-Cost(right(T), f[r+1..n])
+Cost(T_{left}, f[1..r-1]) + \
+Cost(T_{right}, f[r+1..n])
 $$
 
 So, it becomes clear that finding the optimal cost involves picking the correct
@@ -467,6 +467,6 @@ $OptCost[j+1,k]$ (left and below).
 
 (draw evaluation order options on board)
 
-- **Performance analysis:** Clearly require $O(n**2)$ space. However, each entry
+- **Performance analysis:** Clearly require $O(n^2)$ space. However, each entry
 requires evaluating up to $n$ different options for the minimum. Thus, we expect
 $O(n^3)$ time.
