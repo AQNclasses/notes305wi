@@ -228,7 +228,10 @@ Let $c(w)$ be a function that returns the children of vertex $w$. Then, our
 observation above implies the following recurrence:
 
 $$
-MIS(v) = \text{max} \left{ \sum_{w \in c(v)} MIS(w), 1 + \sum_{w \in c(v)} \sum_{x \in c(w)} MIS(x) \right}
+MIS(v) = \text{max} \left. \begin{cases}
+\sum_{w \in c(v)} MIS(w) \\
+1 + \sum_{w \in c(v)} \sum_{x \in c(w)} MIS(x)
+\end{cases} \right}
 $$
 
 What kind of data structure should we use to memoize this recurrence? (Tree!)
@@ -367,3 +370,17 @@ ALGOR
 insertions, so $Edit(0,j) = j$.
 - Transforming a string of length $i$ into the empty string requires $i$
 deletions, so $Edit(i,0) = i$.
+
+So, we can write down our full recurrence as:
+
+$$
+Edit(i,j) = \begin{cases}
+i & \text{if $j = 0$} \\
+j & \text{if $i = 0$} \\
+\text{min} \begin{cases}
+Edit(i,j-1) + 1 \\
+Edit(i-1,j) + 1 \\
+Edit(i-1, j-1) + [A[i] \neq B[j]]
+\end{cases} & \text{otherwise} \\
+\end{cases}
+$$
