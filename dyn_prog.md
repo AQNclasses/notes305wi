@@ -377,7 +377,7 @@ $$
 Edit(i,j) = \begin{cases}
 i & \text{if $j = 0$} \\
 j & \text{if $i = 0$} \\
-\text{min} \right. \begin{cases}
+\text{min} \left. \begin{cases}
 Edit(i,j-1) + 1 \\
 Edit(i-1,j) + 1 \\
 Edit(i-1, j-1) + [A[i] \neq B[j]]
