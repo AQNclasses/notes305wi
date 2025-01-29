@@ -328,8 +328,8 @@ ALGOR
 ```
 
 ```
-ALT R
-ALGOR
+ALTRUI
+ALGORI
 ```
 
 - Special cases: if i=0 or j=0
