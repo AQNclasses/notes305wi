@@ -5,7 +5,7 @@ date: Winter 2025
 ---
 
 
-# Making the Best of It: Efficient Backtracking?
+# Making the Best of It: Efficient Backtracking with Dynamic Programming
 
 ## Example 1
 
