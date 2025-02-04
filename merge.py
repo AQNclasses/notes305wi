@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import time
 
 test = np.array([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
 
@@ -7,15 +8,19 @@ test2 = np.array([6, 7, 8, 9, 10, 1, 2, 3, 4, 5])
 
 def mergeSort(A, k):
     n = A.size
-    if n > 1:
+    if n > k:
         m = n // k
-        for i in range(m):
-            start = i*k
-            stop = (i+1)*k
-            print(f"New Array {A[start:stop]}")
+        for i in range(k):
+            start = i*m
+            stop = (i+1)*m
+            if n - stop < m:
+                stop = n
+            #print(f"Start: {start}, Stop: {stop}, n: {n}")
+            #print(f"New Array {A[start:stop]}")
             mergeSort(A[start:stop], k)
-        for i in range(m):
-            merge(A, k*i)
+        for i in range(k):
+            merge(A, m*i)
+        #print(A)
 
 def merge(A, m):
   B = np.zeros(A.size, dtype=A.dtype)
@@ -26,10 +31,10 @@ def merge(A, m):
       if j >= A.size:
           B[k] = A[i]
           i += 1
-      elif i > m:
+      elif i >= m:
           B[k] = A[j]
           j += 1
-      elif A[i] < A[j]:
+      elif A[i] <= A[j]:
           B[k] = A[i]
           i += 1
       else:
@@ -41,5 +46,5 @@ def merge(A, m):
 
 
 if __name__ == '__main__':
-    res = mergeSort(test, 2)
-    print(res)
+    mergeSort(test, 3)
+    print(test)
