@@ -6,7 +6,16 @@ test = np.array([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
 test2 = np.array([6, 7, 8, 9, 10, 1, 2, 3, 4, 5])
 
 def mergeSort(A, k):
-    return A
+    n = A.size
+    if n > 1:
+        m = n // k
+        for i in range(m):
+            start = i*k
+            stop = (i+1)*k
+            print(f"New Array {A[start:stop]}")
+            mergeSort(A[start:stop], k)
+        for i in range(m):
+            merge(A, k*i)
 
 def merge(A, m):
   B = np.zeros(A.size, dtype=A.dtype)
@@ -30,8 +39,7 @@ def merge(A, m):
   for k in range(A.size):
       A[k] = B[k]
 
-  return A
 
 if __name__ == '__main__':
-    res = merge(test2, 5)
+    res = mergeSort(test, 2)
     print(res)
