@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import time
-#import random
 
 test = np.array([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
 
@@ -49,12 +48,25 @@ def merge(A, m):
 if __name__ == '__main__':
     input_size = np.array([i for i in range(100, 10**4, 500)])
     times = np.zeros(input_size.shape)
+    times2 = np.zeros(input_size.shape)
     for i, N in enumerate(input_size):
-        t0 = time.time()
         test = np.random.randint(0, 100, N)
+
+        # binary merge
+        t0 = time.time()
         mergeSort(test, 2)
         t1 = time.time()
         times[i] = t1 - t0
 
-    print(times)
+        # trinary merge
+        t0 = time.time()
+        mergeSort(test, 4)
+        t1 = time.time()
+        times2[i] = t1 - t0
+
+    fig, ax = plt.subplots()
+    ax.plot(input_size, times, label="binary", color='k')
+    ax.plot(input_size, times2, label="trinary", color='r')
+    ax.legend()
+    plt.show()
      
