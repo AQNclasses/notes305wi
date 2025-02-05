@@ -1,4 +1,4 @@
-SOURCE_DOCS := $(wildcard *.md)
+SOURCE_DOCS := $(topics/*.md)
 
 EXPORTED_DOCS=\
   $(SOURCE_DOCS:.md=.pdf) \

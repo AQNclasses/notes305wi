@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
         # trinary merge
         t0 = time.time()
-        mergeSort(test, 4)
+        mergeSort(test, 3)
         t1 = time.time()
         times2[i] = t1 - t0
 
