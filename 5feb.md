@@ -10,4 +10,4 @@ more details Friday
 
 # More divide and conquer
 
-From [here](topics/div_n_conq.md).
+From [here](topics/div_n_conq.md), using [this worksheet](worksheets/max_subarray.pdf).
