@@ -30,9 +30,11 @@ What are some examples?
 - Binary search: $T(n) = T(n/2)$
 - Max sub-array: $T(n) = 2T(n/2) + \Theta(n)$
 
-First, we define a *critical exponent* $c = \log_b(a)$.
+First, we define a *critical exponent* $c_{crit} = \log_b(a)$.
 
 Three cases:
 
 1. Work is dominated by subproblems.
-   a. **Condition:**
+
+   a. **Condition:** $f(n) = O(n^c)$ where $c < c_{crit}$.
+   b. **Bound:** $T(n) = \Theta(n^{c_{crit}}$
