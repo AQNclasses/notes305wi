@@ -66,4 +66,46 @@ Three cases:
 
    b. **Bound:** $T(n) = \Theta(f(n))$
 
+Examples:
 
+1. $T(n) = 8T(\frac{n}{2}) + 1000n^2$
+
+Solution: Case 1
+
+$f(n) = O(n^2)$
+
+$\log_b(a) = \log_2(8) = 3 > 2$.
+
+Thus,
+
+$$
+T(n) = \Theta(n^{\log_b(a)}) = \Theta(n^3)
+$$
+
+2. $T(n) = 2T(n/2) + 10n$
+
+$a=2, b-2, c=1, f(n) = 10n$
+
+$f(n) = \Theta(n^c \log^k n)$, where $c=1, k=0$
+
+$\log_b a = \log_2 2 = 1$, therefore, $c = \log_b a$
+
+$T(n) = \Theta(n^{\log_b a} \log^{k+1} n) = \Theta(n \log n)$
+
+3. $T(n) = 2T(n/2) + n^2$
+
+$a=2, b=2, f(n) = n^2$
+
+$f(n) = \Omega(n^c)$, where $c=2$.
+
+Filling case 3 condition:
+
+$\log_b a = \log_2 1$, so $c > \log_b a$.
+
+Regularity condition:
+
+$2 n^2 / 4 \leq kn^2$, choosing $k = 1/2$.
+
+So:
+
+$T(n) = \Theta(n^2)$.
