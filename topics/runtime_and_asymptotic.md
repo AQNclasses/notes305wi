@@ -49,6 +49,7 @@ def example(n):
       j = 1                 # n (cost one, inside for loop)
       while j <= n:         # one evaluation per iteration of inner loop
          j += 2             # 1 operation per iteration of inner loop
+    return n-j              # 2: count return and subtraction
 ```
 
 - How many times will inner loop evaluate for arbitrary `i`?
