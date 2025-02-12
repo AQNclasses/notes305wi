@@ -43,16 +43,16 @@ algorithms.
 
 ```python
 def example(n):
-    j = 0                   # 1 assignment
+    j = 0                   # 1 initialize, 1 assignment
     j += 1                  # 1 operation
     for i in range(1,n):    # 1 assignment to initialize, one for each increment = n+1
-      j = 1                 # n (cost one, inside for loop)
-      while j <= n:         # one evaluation per iteration of inner loop
-         j += 2             # 1 operation per iteration of inner loop
+      j = 1                 # 1*n (cost one, inside for loop)
+      while j <= n:         # 1*n*(sum of iterations of inner loop)
+         j += 2             # 1*n*(sum of iterations of inner loop)
     return n-j              # 2: count return and subtraction
 ```
 
-- How many times will inner loop evaluate for arbitrary `i`?
+- How many times will inner while loop evaluate for arbitrary `i`?
 - Can estimate `n/2` by inspection
 - Algebra solution:
   - after $k$ iterations, value of `j` is `2k+1`
