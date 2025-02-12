@@ -59,7 +59,7 @@ def example(n):
   - Termination condition: `j <= n`
   - Solve for value of k when loop terminates: `2k+1 <= n` -> `k = (n-1)/2`
 - So inner loop will run $(n-1)/2$ times during *each* iteration of outer loop
-- Total count -> $n*c*(n-1)/2$
+- Total count -> $nc(n-1)/2$
 - What if inner loop instead terminates when $j <= i$??
   - Can simply multiply max runtime by $n$ (over-estimation)
   - To get tighter bound, manually compute sum over i
