@@ -38,7 +38,7 @@ Three cases:
 
 3 . Work to split/recombine dominates the subproblems.
 
-   a. **Condition:** $f(n) = \Omega(n^{c_{crit}}$ where $c > c_{crit}$
+   a. **Condition:** $f(n) = \Omega(n^c)$ where $c > c_{crit}$
    **and** $af(\frac{n}{b}) \leq k f(n)$ for $k < 1$ and sufficiently large $n$. Second
    condition is called the *regularity condition*.
 
