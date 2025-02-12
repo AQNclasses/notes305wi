@@ -24,7 +24,7 @@ T(n) = 2T(n/2) + n
 $$
 
 $$
-T(n) = 3T(n) + n^2
+T(n) = 3T(n-1) + n^2
 $$
 
 ## Amortization review
