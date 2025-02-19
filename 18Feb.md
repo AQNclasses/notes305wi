@@ -11,7 +11,7 @@
 
 ## Coding problem
 
-- Maximum Ice Cream Bars
+- Maximum Ice Cream Flavors: given a fixed budget, and a list of costs for ice cream flavors, how do we maximize the number of flavors we can try?
 
 ## How to prove optimality?
 
