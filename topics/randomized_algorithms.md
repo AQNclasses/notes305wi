@@ -56,11 +56,13 @@ The first time that we choose a pivot $x \in Z_{ij}$, each element is equally
 likely. Since $|Z_{ij}| = j-i+1$, the probability is $1/(j-i+1)$ that any given
 element is chosen as the pivot. Thus, by Lemma 2, we have:
 
+$$
 \begin{align\*}
 Pr(z_i \text{  is compared to  } z_j) = & Pr(z_i \text{or} z_j \text{first pivot}) \\
 = & Pr(z_i \text{first pivot}) + Pr(z_j \text{first pivot}) \\
 = & \frac{2}{j-i+1}
 \end{align\*}
+$$
 
 where the second line follows from the first because the two events are mutually
 exclusive.
@@ -79,18 +81,22 @@ $$
 By taking expectations of both sides, and by linearity of expectation, we
 obtain:
 
+$$
 \begin{align\*}
 E\[X\] = & E \large[ \sum_{i=1}^{n-1} \sum_{j=i+1}^n X_{ij} \large] \\
 = & \sum_{i=1}^{n-1} \sum_{j=i+1}^n E\[ X_{ij} ] \\
 = & \sum_{i=1}^{n-1} \sum_{j=i+1}^n Pr(z_i \text{compared to} z_j) \\
 = & \sum_{i=1}^{n-1} \sum_{j=i+1}^n \frac{2}{j-i+1}
 \end{align\*}
+$$
 
 Change of variables:
 
+$$
 \begin{align\*}
 E\[X\] = & \sum_{i=1}^{n-1} \sum_{k=1}^{n-i} \frac{2}{k+1} \\
 < & \sum_{i=1}^{n-1} \sum_{k=1}^{n} \frac{2}{k} \\
 = & \sum_{i=1}^{n-1} O(\lg{n}) \\
 = & O(n\lg{n})
 \end{align\*}
+$$
