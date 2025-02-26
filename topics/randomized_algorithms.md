@@ -16,7 +16,7 @@ $X$ is the number of element comparisons performed.
 in any future calls to quicksort or partition. Thus, there will be at most $n$
 calls to Partition over the entire execution.
 
-Partition takes O(1) time plus an amount of time proportional to the number of
+Partition takes $O(1)$ time plus an amount of time proportional to the number of
 iterations of the for loop. Each iteration performs one element comparison.
 There are at most $n$ calls to Partition.
 
@@ -52,15 +52,15 @@ compared to each other) until Partition chooses some $x \in Z_{ij}$ as the
 pivot. From that point on, the pivot $x$ appears in no subsequent input and is
 not compared.
 
-The first time that we choose a pivot $x \ in Z_{ij}$, each element is equally
+The first time that we choose a pivot $x \in Z_{ij}$, each element is equally
 likely. Since $|Z_{ij}| = j-i+1$, the probability is $1/(j-i+1)$ that any given
 element is chosen as the pivot. Thus, by Lemma 2, we have:
 
-$$
-Pr(z_i \text{is compared to} z_j = Pr(z_i \text{or} z_j \text{first pivot}) \\
-= Pr(z_i \text{first pivot}) + Pr(z_j \text{first pivot}) \\
-= \frac{2}{j-i+1}
-$$
+\begin{align\*}
+Pr(z_i \text{  is compared to  } z_j) = & Pr(z_i \text{or} z_j \text{first pivot}) \\
+= & Pr(z_i \text{first pivot}) + Pr(z_j \text{first pivot}) \\
+= & \frac{2}{j-i+1}
+\end{align\*}
 
 where the second line follows from the first because the two events are mutually
 exclusive.
@@ -69,7 +69,7 @@ exclusive.
 elements is $O(n \lg{n})$.
 
 **Proof:** Let the elements be $z_1 < z_2 < \ldots < z_n$. Define an indicator
-variable $X_{ij} = [z_i \text{is compared to} z_j\]$. From Lemma 2, each pair is
+variable $X_{ij} = [z_i \text{ is compared to } z_j\]$. From Lemma 2, each pair is
 compared at most once, so we can express $X$ as
 
 $$
@@ -79,18 +79,18 @@ $$
 By taking expectations of both sides, and by linearity of expectation, we
 obtain:
 
-\begin{align*}
+\begin{align\*}
 E\[X\] = & E \large[ \sum_{i=1}^{n-1} \sum_{j=i+1}^n X_{ij} \large] \\
 = & \sum_{i=1}^{n-1} \sum_{j=i+1}^n E\[ X_{ij} ] \\
 = & \sum_{i=1}^{n-1} \sum_{j=i+1}^n Pr(z_i \text{compared to} z_j) \\
 = & \sum_{i=1}^{n-1} \sum_{j=i+1}^n \frac{2}{j-i+1}
-\end{align*}
+\end{align\*}
 
 Change of variables:
 
-\begin{align*}
+\begin{align\*}
 E\[X\] = & \sum_{i=1}^{n-1} \sum_{k=1}^{n-i} \frac{2}{k+1} \\
 < & \sum_{i=1}^{n-1} \sum_{k=1}^{n} \frac{2}{k} \\
 = & \sum_{i=1}^{n-1} O(\lg{n}) \\
 = & O(n\lg{n})
-\end{align*}
+\end{align\*}
