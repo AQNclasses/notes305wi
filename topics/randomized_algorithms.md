@@ -111,7 +111,7 @@ variable $X_{ij}$, for $1 \leq i < j \leq k$, by
 
 $$
 \begin{align\*}
-X_{ij} & = \[\text{person} i \text{and person} j \text{have the same birthday}\] \\
+X_{ij} & = \[\text{person } i \text{ and person } j \text{ have the same birthday}\] \\
 & = \begin{cases}
 1 & \text{same birthday} \\
 0 & otherwise
@@ -123,7 +123,7 @@ If we consider $n$ days in a year, the probability that both birthdays fall on
 the same day is
 
 $$
-\sum_{r=1}^n \Pr{d_i \text{and} d_j \text{is on day} r}
+\sum_{r=1}^n \Pr{d_i \text{ and } d_j \text{ is on day } r}
 $$
 
 which becomes
