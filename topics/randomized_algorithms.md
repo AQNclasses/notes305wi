@@ -143,6 +143,7 @@ $$
 E\[X\] = & E\large[ \sum_{i=1}^{k-1} \sum_{j=i+1}^k X_{ij} \large] \\
 = & \binom{k}{2} \frac{1}{n} \\
 = & \frac{k(k-1)}{2n}
+\end{align\*}
 $$
 
 When $k(k-1) \geq 2n$, expected number is at least one.
