@@ -1,11 +1,12 @@
 # Quicksort Review
 
-(see slides/quicksort.py)
+(see scripts/quicksort.py)
 
 # Intuition of Randomized Quicksort Average Case
 
+(to be transcribed)
 
-# Exact Expected Runtime
+# Exact Expected Runtime of Quicksort
 
 ## Comparisons
 
@@ -100,3 +101,48 @@ E\[X\] = & \sum_{i=1}^{n-1} \sum_{k=1}^{n-i} \frac{2}{k+1} \\
 = & O(n\lg{n})
 \end{align\*}
 $$
+
+# More small problems
+
+## Birthday problem
+
+For each pair $(i,j)$ of the $k$ people in the room, define the indicator random
+variable $X_{ij}$, for $1 \leq i < j \leq k$, by
+
+$$
+\begin{align\*}
+X_{ij} & = \[\text{person} i \text{and person} j \text{have the same birthday}\] \\
+& = \begin{cases}
+1 & \text{same birthday} \\
+0 & otherwise
+\end{cases}
+\end{align\*}
+$$
+
+If we consider $n$ days in a year, the probability that both birthdays fall on
+the same day is
+
+$$
+\sum_{r=1}^n \Pr{d_i \text{and} d_j \text{is on day} r}
+$$
+
+which becomes
+
+$$
+\sum_{r=1}^n \frac{1}{n} \frac{1}{n} = \frac{1}{n}.
+$$
+
+Next, let $X$ be the random variable that counts the number of pairs of
+individuals having the same birthday.
+
+Taking expectation of both sides and applying linearity of expectation, we
+obtain
+
+$$
+\begin{align\*}
+E\[X\] = & E\large[ \sum_{i=1}^{k-1} \sum_{j=i+1}^k X_{ij} \large] \\
+= & \binom{k}{2} \frac{1}{n} \\
+= & \frac{k(k-1)}{2n}
+$$
+
+When $k(k-1) \geq 2n$, expected number is at least one.
