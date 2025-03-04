@@ -8,9 +8,4 @@
 
 ## Randomized Algorithms
 
-### Classical Quicksort
-
-```
-
-
-```
+Review of quicksort, using [this script](scripts/quicksort.py).
