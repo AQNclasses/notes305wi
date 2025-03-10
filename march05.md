@@ -47,7 +47,15 @@ $A[left(i)]$ and $A[right(i)]$, plus one recursive call on one of the children.
 
 Child subtrees have size at most $2n/3$. Why?
 
-Nodes in left subtree:
+A few proofs [at this link](https://stackoverflow.com/questions/9099110/worst-case-in-max-heapify-how-do-you-get-2n-3).
+
+So, we have
+
+$$
+T(n) = \Theta(1) + T(2n/3)
+$$
+
+which gives $O(\lg(n))$.
 
 $$
 1 + 2+ 4 + i + \ldots + 2^{h+1} = 2^{h+2} -1
