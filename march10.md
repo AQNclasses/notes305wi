@@ -53,13 +53,13 @@ queue in $O(log M)$ time, and update our secondary data structure if necessary.
 
 Originally, all nodes are in the priority queue to start. Each node must be
 processed in the while loop, and the complexity of operations inside the while
-loop is $O((neighbors per node) \log M) < O((neighbors per node)\dot \log |V|)$.
+loop is $O((\text{neighbors per node}) \log M) < O((\text{neighbors per node})\dot \log |V|)$.
 
 Thus, the total complexity of the algorithm is bounded by
 
 $$
 \begin(align\*}
-& O(N \dot (neighbors per node ) \dot \log |V|) \\
+& O(N \dot (\text{neighbors per node}) \dot \log |V|) \\
 \leq & O(|E| \dot \log |V|) \\
 \end{align\*}
 $$
