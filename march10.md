@@ -58,7 +58,7 @@ loop is $O((\text{neighbors per node}) \log M) < O((\text{neighbors per node})\d
 Thus, the total complexity of the algorithm is bounded by
 
 $$
-\begin(align\*}
+\begin{align\*}
 & O(N \dot (\text{neighbors per node}) \dot \log |V|) \\
 \leq & O(|E| \dot \log |V|) \\
 \end{align\*}
