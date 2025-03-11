@@ -3,6 +3,12 @@
 - HW 5 out, single problem due Sunday
     - Extra credit problems will be out by tonight
 - Most grades should be updated by tonight
+- Recall new policy:
+
+```
+If (Midterm + Final)/2 > Midterm:
+    Midterm = (Midterm + Final)/2
+```
 
 # Analyzing Dijkstra's Algorithm
 
